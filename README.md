@@ -12,7 +12,7 @@ The ODSum dataset is designed to evaluate the performance of modern summarizatio
 
 ### Dataset Statistics
 
-<img src="/Users/erlich_jaso/Library/Application Support/typora-user-images/image-20230930180308855.png" alt="image-20230930180308855" style="zoom:50%;" />
+<img src="img/dataset statistics.png" alt="image-20230930180308855" style="zoom:50%;" />
 
 ### Dataset Structure
 
@@ -30,19 +30,19 @@ To process the data and convert it into formats compatible with various summariz
 
 Retrieval Peformance
 
-<img src="/Users/erlich_jaso/Library/Application Support/typora-user-images/image-20230930180329172.png" alt="image-20230930180329172" style="zoom:50%;" />
+<img src="./img/RetPer.png" alt="image-20230930180329172" style="zoom:50%;" />
 
 
 
 Summarization Performance for ODSum-story
 
-![image-20230930180356879](/Users/erlich_jaso/Library/Application Support/typora-user-images/image-20230930180356879.png)
+![image-20230930180356879](./img/SumPerStory.png)
 
 
 
 Summarization Performance for ODSum-meeting
 
-![image-20230930180422951](/Users/erlich_jaso/Library/Application Support/typora-user-images/image-20230930180422951.png)
+![image-20230930180422951](./img/SumPerMeeting.png)
 
 ## Citation
 
