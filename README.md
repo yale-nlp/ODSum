@@ -16,7 +16,35 @@ The ODSum dataset is designed to evaluate the performance of modern summarizatio
 
 ### Dataset Structure
 
-(Description of the dataset structure. This would typically include format descriptions, number of data points, any specific domain areas it covers, etc.)
+##### Story
+
+You can access the raw documents and queries paired with summaries in the `data/story/raw` folder. The `data/story/oracle` folder associates these queries with their respective 'ground truth' articles.
+
+For the retrieval part, three distinct strategies are provided:
+
+- Sparse Retrieval (`data/story/sparse`)
+- Dense Retrieval (`data/story/dense`)
+- LLM-Embedding Retrieval (`data/story/LLM-embedding`)
+
+Each of these retrieval folders contains three sub-versions:
+
+- `min`: Contains the least number of retrieved documents based on relevancy.
+- `mean`: An average number of retrieved documents.
+- `max`: Contains the maximum number of documents deemed relevant by the retriever.
+
+**Files in each folder**:
+
+- **Raw Data**:
+  - `documents`: Contains the stories or documents.
+  - `queries`: Paired queries with four human-written summaries. There is no clear relationship between the query and the story in this raw form.
+- **Oracle Data**:
+  - Maps each query to its corresponding 'ground truth' articles.
+- **Retrieval Data** (Applies to `sparse`, `dense`, and `LLM-embedding`):
+  - `min`: Data with the minimum number of retrieved documents.
+  - `mean`: Data with an average number of retrieved documents.
+  - `max`: Data with the maximum number of retrieved documents based on their relevancy.
+
+**Note**: The retrievers rank the documents based on their relevancy to the query, and they select the most relevant few. The number of retrieved documents is variable, depending on the retrieval strategy and the version (min, mean, max).
 
 ## Models
 
@@ -24,7 +52,7 @@ The ODSum dataset is designed to evaluate the performance of modern summarizatio
 
 ## Data Processing
 
-To process the data and convert it into formats compatible with various summarization models, refer to `data_process.ipynb` (or the appropriate processing notebook/script provided).
+To process the data and convert it into formats compatible with various summarization models, refer to `data_process.ipynb`
 
 ## Experimental Results
 
