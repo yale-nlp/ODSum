@@ -48,7 +48,25 @@ Each of these retrieval folders contains three sub-versions:
 
 ## Models
 
-[TODO]
+**BART**
+Description: A sequence-to-sequence Transformer pre-trained using both a sentence permutation and text infilling objective.
+Checkpoint & Training: Used the *BART-Large* variant fine-tuned on the CNN/DailyMail dataset. It's further fine-tuned on ODSum with AdamW optimizer, utilizing a unique input format that merges queries and documents.
+Limitation: Due to a restricted context length of 1024 tokens, BART serves as a baseline model.
+**PRIMERA**
+Description: Designed explicitly for multi-document summarization, PRIMERA simplifies the processing of concatenated documents using efficient encoder-decoder transformers.
+Implementation: Fine-tuned on each ODSum setting. With a max input length of 4K tokens, documents are truncated to fit within this constraint.
+**GPT**
+Description: A well-known language model from OpenAI with proven efficacy in text summarization.
+Variants & Training: Employed both *gpt-3.5-16k-turbo-0613* and *gpt-4-0613* versions. Special prompts were crafted to guide GPT in summarization, emphasizing the placement of queries at articles' ends for better output.
+
+Limitation: Stories and meetings had to be truncated to match GPT's max token limit.
+**Llama-2**
+Description: An expansive series of auto-regressive text models renowned for capabilities from logical reasoning to text generation.
+
+Checkpoint: Utilized the *Llama-2-70b-Chat* variant, which is particularly optimized for dialog contexts. For efficiency during inference, 4-bit NF4 quantization is employed.
+
+
+
 
 ## Data Processing
 
