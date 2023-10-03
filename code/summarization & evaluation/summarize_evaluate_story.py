@@ -303,15 +303,4 @@ class Evaluate:
                 Evaluate.evaluate(path, model_name, dataset, bert, rouge, another_rouge, bleurt, gpteval,
                                   gpteval_summary_index)
                 print(f'write to {path}')
-
-# 初始化所有 Pygame 模块
-# pygame.init()
-# waiting to process: dense LLM-embedding oracle sparse —— bart rel
-
-# Play sound when done
-# pygame.mixer.music.load("雷达铃声.mp3")
-# pygame.mixer.music.set_volume(0.1)
-# for _ in range(3):
-#     pygame.mixer.music.play()
-#     while pygame.mixer.music.get_busy():
-#         continue
+s
