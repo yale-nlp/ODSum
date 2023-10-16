@@ -89,22 +89,3 @@ Summarization Performance for ODSum-story
 Summarization Performance for ODSum-meeting
 
 ![image-20230930180422951](./img/SumPerMeeting.png)
-
-## Citation
-
-If you use the ODSum dataset in your work, please kindly cite the following:
-
-```
-@article{zhou2023odsum,
-   title={ODSUM: New Benchmarks for Open Domain Multi-Document Summarization},
-   author={Zhou, Yijie and Shi, Kejian and Zhang, Wencai and Liu, Yixin and Zhao, Yilun and Cohan, Arman},
-   journal={arXiv preprint arXiv:2309.08960},
-   year={2023}
-}
-```
-
-## Contacts
-
-For any queries or issues related to ODSum, please contact:
-- Yijie Zhou: e.j.zhou@zju.edu.cn
-- Kejian Shi: kejian.shi@yale.edu
