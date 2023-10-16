@@ -2,10 +2,7 @@
 
 ## Overview
 
-ODSum introduces a benchmark for the task of Open Domain Multi-Document Summarization. This work is a result of collaborative research between Zhejiang University and Yale University.
-
-The full details of the benchmarks and methodologies can be found in the [official paper](https://arxiv.org/pdf/2309.08960.pdf) authored by Yijie Zhou, Kejian Shi, Wencai Zhang, Yixin Liu, Yilun Zhao, and Arman Cohan.
-
+ODSum introduces a benchmark for the task of Open Domain Multi-Document Summarization. 
 ## Dataset
 
 The ODSum dataset is designed to evaluate the performance of modern summarization models in multi-document contexts spanning an open domain.
