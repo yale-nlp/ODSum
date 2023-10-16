@@ -1,0 +1,24 @@
+
+python ./run_summarization.py \
+    --model_name_or_path facebook/bart-large-cnn \
+    --do_train \
+    --do_eval \
+    --do_predict \
+    --train_file bart/data/QMSum/sparse/max/train.json \
+    --validation_file bart/data/QMSum/sparse/max/dev.json \
+    --test_file bart/data/QMSum/sparse/max/test.json \
+    --source_prefix None \
+    --max_source_length 1024 \
+    --max_target_length 640 \
+    --val_max_target_length 640 \
+    --learning_rate 5e-5 \
+    --num_train_epochs 4 \
+    --output_dir ./output/4/QMSum/sparse/max \
+    --overwrite_output_dir \
+    --per_device_train_batch_size=8 \
+    --gradient_accumulation_steps=2 \
+    --per_device_eval_batch_size=8 \
+    --text_column input \
+    --summary_column reference \
+    --predict_with_generate \
+    --report_to wandb \
