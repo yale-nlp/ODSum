@@ -62,7 +62,6 @@ class Summarize:
 
     @staticmethod
     def traverse_summary(folder_path):
-        # folder_path 指定要遍历的文件夹路径
         # folder_path = "SQuALITY/sparse/min"
         wait_process_files = [
             "max.json",
@@ -76,10 +75,8 @@ class Summarize:
             "train.json",
         ]
         for root, dirs, files in os.walk(folder_path):
-            # 遍历当前目录下的文件夹
             for dir_name in dirs:
-                print("文件夹：", os.path.join(root, dir_name))
-            # 遍历当前目录下的文件
+                print("Path：", os.path.join(root, dir_name))
             for file_name in files:
                 # If it is origin file
                 if file_name not in wait_process_files:
@@ -154,7 +151,6 @@ class Evaluate:
                 references=[[item] for item in references],
                 use_stemmer=True,
             )
-        # Save
         file_name = model_name + "_squality_rouge.json"
         file_path = os.path.join(path, "evaluation/" + model_name + "/" + file_name)
         with open(file_path, "w") as f:
@@ -163,7 +159,6 @@ class Evaluate:
     @staticmethod
     def bert(path, predictions, references, model_name):
         print("Evaluate bert score")
-        # 批次大小
         batch_size = 261
         bert_scores = {
             "p": [],
@@ -173,7 +168,7 @@ class Evaluate:
             "average_r": 0,
             "average_f1": 0,
         }
-        num_batches = (len(predictions) + batch_size - 1) // batch_size  # 计算需要的批次数量
+        num_batches = (len(predictions) + batch_size - 1) // batch_size  
 
         for i in tqdm(range(num_batches)):
             start = i * batch_size
