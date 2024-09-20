@@ -22,7 +22,7 @@ llm = ChatOpenAI(model_name="gpt-4-0613", openai_api_key=api_key, temperature=0.
 class Split:
     @staticmethod
     def split_string(string, num_segments):
-        # 计算每段的大致大小
+    
         chunk_size = 1 + len(string) // num_segments
         chunks = []
         start = 0
@@ -30,25 +30,24 @@ class Split:
         for _ in range(num_segments):
             end = start + chunk_size
 
-            # 如果已经到达字符串尾部，直接结束循环
+            # If the end exceeds the length of the string
             if end >= len(string):
                 chunks.append(string[start:])
                 break
 
-            # 查找最近的可能的句子结尾
+            # Find the nearest possible sentence ending
             while end < len(string):
                 if string[end] in '.!?' and (end + 1 >= len(string) or string[end + 1].isspace()):
                     break
                 end += 1
 
-            # 如果找到可能的句子结尾，包括该字符在内
+            # If a possible sentence ending is found, include that character
             if end < len(string):
                 end += 1
 
-            # 截取从start到end的子串，并添加到chunks列表中
+            # Extract the substring from start to end and add it to the chunks list
             chunks.append(string[start:end])
 
-            # 更新下一次迭代的起始位置
             start = end
 
         return chunks
@@ -70,13 +69,13 @@ class Split:
         path = 'SQuALITY'
         wait_process_files = ['test.json']
         for root, dirs, files in os.walk(path):
-            # 遍历当前目录下的文件
+            # Traverse files in the current directory
             for file_name in files:
                 # If it is origin file
                 if file_name not in wait_process_files:
                     continue
 
-                # 检测有没有创建split文件夹
+                # Check if the split folder has been created
                 if not os.path.lexists(os.path.join(root, 'split')):
                     os.makedirs(os.path.join(root, 'split'))
 
@@ -109,7 +108,7 @@ class Summarize:
         save_final_output = []
 
         for index, article in enumerate(articles):
-            # 运行并处理
+            # Run and process
             query = queries[index]
             intermediate_outputs = Summarize.intermediate_summary(query, article)
             final_output = Summarize.final_summary(query, intermediate_outputs)
@@ -212,6 +211,3 @@ class SelectSummary:
         queries = [queries[index] for index in index_list]
         articles = [articles[index] for index in index_list]
         return queries, articles
-
-
-
